@@ -1,5 +1,5 @@
 # docker-hugo
-[![](https://images.microbadger.com/badges/version/mapitman/docker-hugo.svg)](https://microbadger.com/images/mapitman/docker-hugo "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/mapitman/docker-hugo.svg)](https://hub.docker.com/r/mapitman/docker-hugo/)
 [![](https://images.microbadger.com/badges/image/mapitman/docker-hugo.svg)](https://microbadger.com/images/mapitman/docker-hugo "Get your own image badge on microbadger.com")  
 Use this image to build your [Hugo](https://gohugo.io/) website as a docker image.
 
