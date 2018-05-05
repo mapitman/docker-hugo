@@ -9,3 +9,4 @@ push:
 
 run:
 	docker run -it --rm $(NAME)
+
