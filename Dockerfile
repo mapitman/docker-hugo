@@ -1,4 +1,4 @@
-FROM docker:latest
+FROM docker:18.06
 
 ARG VCS_REF
 ARG BUILD_DATE
