@@ -1,10 +1,10 @@
 NAME = mapitman/docker-hugo
-TAG := $(shell git describe --exact-match --tags $(git log -n1 --pretty='%h'))
+TAG := $(shell git describe --exact-match --tags $(shell git log -n1 --pretty='%h') 2>/dev/null || git rev-parse --short HEAD)
 default: build
 
 build:
 	docker build --build-arg VCS_REF=`git rev-parse --short HEAD` --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` -t $(NAME):$(TAG) .
-		docker tag $(NAME):$(TAG) $(NAME):latest
+	docker tag $(NAME):$(TAG) $(NAME):latest
 
 push:
 	docker push $(NAME):$(TAG)

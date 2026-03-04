@@ -1,15 +1,15 @@
-FROM docker:18.06
+FROM alpine:3.23
 
 ARG VCS_REF
 ARG BUILD_DATE
-MAINTAINER Mark Pitman <mark@pitman.bz>
-ENV GOROOT /usr/lib/go
-ENV GOPATH /gopath
-ENV GOBIN /gopath/bin
-ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
+ARG HUGO_VERSION=0.157.0
 
-RUN apk update && apk add musl-dev openssh sshpass curl git mercurial bzr go make && go get -v github.com/spf13/hugo && rm -rf $GOPATH/src/* && rm -rf $GOPATH/pkg/* && apk del go curl mercurial bzr
-LABEL   org.label-schema.build-date=$BUILD_DATE \
-        org.label-schema.vcs-ref=$VCS_REF\
+LABEL   maintainer="Mark Pitman <mark@pitman.bz>" \
+        org.label-schema.build-date=$BUILD_DATE \
+        org.label-schema.vcs-ref=$VCS_REF \
         org.label-schema.vcs-url="https://github.com/mapitman/docker-hugo"
+
+RUN apk update && apk add --no-cache openssh sshpass git curl && \
+    curl -sSL "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz" \
+      | tar -xz -C /usr/local/bin hugo
 
