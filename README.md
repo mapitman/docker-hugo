@@ -8,7 +8,7 @@ I use this image as my build container on [gitlab.com](https://gitlab.com) with 
 This is the CI configuration I use to build my Hugo based website. I sync the contents to an Amazon Web Services S3 bucket. Then I've setup Cloudfront to handle SSL in front of the bucket.
 
 ```sh
-image: mapitman/docker-hugo:latest
+image: mapitman/hugo:latest
 stages:
   - build
   - deploy

@@ -1,4 +1,4 @@
-NAME = mapitman/docker-hugo
+NAME = mapitman/hugo
 TAG := $(shell git describe --exact-match --tags $(shell git log -n1 --pretty='%h') 2>/dev/null || git rev-parse --short HEAD)
 default: build
 
